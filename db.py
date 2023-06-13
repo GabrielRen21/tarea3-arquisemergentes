@@ -49,9 +49,9 @@ def create_tables():
         cursor.execute(table)
 
 def llena_tabla():
-    db = get_db() 
+    db = get_db()
     cursor_dos = db.cursor()
-    uno = "admin12"
+    uno = "admin6"
     statement_dos = "INSERT INTO admin(name, password) VALUES (?, ?)"
     cursor_dos.execute(statement_dos,[uno,uno])
     db.commit()
