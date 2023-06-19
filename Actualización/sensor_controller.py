@@ -75,7 +75,7 @@ def delete_sensor(admin,password,sensor_id,company_api_key):
     else:
         cursor_dos = db.cursor() # otro cursor
         statement_dos =  "DELETE FROM sensor WHERE sensor_id = ? AND location_id = (SELECT sensor.location_id FROM company, location, sensor WHERE company.company_api_key = ? AND location.company_api_key = company.company_api_key AND sensor.location_id = location.location_id GROUP BY sensor.location_id)"
-        cursor_dos.execute(statement_dos, [location_id, company_api_key])
+        cursor_dos.execute(statement_dos, [sensor_id, company_api_key])
         db.commit()
         return True
 
